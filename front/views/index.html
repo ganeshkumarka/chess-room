@@ -1,0 +1,147 @@
+<!-- <html>
+    <head>
+        {{> head}}
+    </head>
+    <body>
+        <h2>Game code</h2>
+        <input type="text" id="codeInput">
+        <button id="createGame">Create game</button>
+        <button id="joinGame">Join game</button>
+        <div style="color: red" id="errorMessage"></div>
+
+        <script>
+            $('#createGame').on('click', function() {
+                window.location.replace('/white?code=' + $('#codeInput').val());
+            });
+            $('#joinGame').on('click', function() {
+                window.location.replace('/black?code=' + $('#codeInput').val());
+            });
+
+            var urlParams = new URLSearchParams(window.location.search);
+            if (urlParams.get('error') == 'invalidCode') {
+                $('#errorMessage').text('Invalid invite code');
+            }
+        </script>
+    </body>
+</html> -->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Chess Game</title>
+    <style>
+        body {
+            background-image: url('https://source.unsplash.com/random/1920x1080/?chess');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            font-family: 'Montserrat', sans-serif;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+            text-align: center;
+            animation: fadeIn 1s ease;
+        }
+
+        h2 {
+            margin-top: 0;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        input[type="text"] {
+            padding: 10px;
+            border-radius: 5px;
+            border: none;
+            margin-bottom: 20px;
+            width: 200px;
+            font-size: 16px;
+        }
+
+        button {
+            padding: 10px 20px;
+            border-radius: 5px;
+            border: none;
+            margin: 0 10px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        #createGame {
+            background-color: #4CAF50;
+            color: #fff;
+        }
+
+        #joinGame {
+            background-color: #2196F3;
+            color: #fff;
+        }
+
+        #createGame:hover {
+            background-color: #3e8e41;
+        }
+
+        #joinGame:hover {
+            background-color: #0b7dda;
+        }
+
+        #errorMessage {
+            margin-top: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <h2>Chess Game</h2>
+        <input type="text" id="codeInput" placeholder="Enter code">
+        <button id="createGame">Create Game</button>
+        <button id="joinGame">Join Game</button>
+        <div style="color: red" id="errorMessage"></div>
+    </div>
+
+    <script>
+        $('#createGame').on('click', function () {
+            window.location.replace('/white?code=' + $('#codeInput').val());
+        });
+
+        $('#joinGame').on('click', function () {
+            window.location.replace('/black?code=' + $('#codeInput').val());
+        });
+
+        var urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.get('error') == 'invalidCode') {
+            $('#errorMessage').text('Invalid invite code');
+        }
+    </script>
+</body>
+
+</html>
